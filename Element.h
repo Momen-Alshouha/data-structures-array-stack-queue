@@ -4,6 +4,7 @@ template <typename T>
 class Element
 {
 public:
+    Element() {};
     Element(T data);
 
     T GetDataValue() {
