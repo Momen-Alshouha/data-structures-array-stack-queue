@@ -61,9 +61,27 @@ public:
         return *this;
     }
 
-    void Add(T data)
+    void InsertEnd(T data)
     {
         _ptrToFirstElement[_currentSize].SetDataValue(data);
+        ++_currentSize;
+    }
+
+    void InsertBegin(T data)
+    {
+        if (_currentSize >= _capacity)
+        {
+            Resize(_capacity * 2);
+        }
+
+        // Shift existing elements to make place for the new element at the beginning
+        for (size_t i = _currentSize; i > 0; --i)
+        {
+            _ptrToFirstElement[i] = _ptrToFirstElement[i - 1];
+        }
+
+        // Insert the new element at the beginning
+        _ptrToFirstElement[0].data = data;
         ++_currentSize;
     }
 

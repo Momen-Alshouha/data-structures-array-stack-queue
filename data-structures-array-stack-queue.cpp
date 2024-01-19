@@ -5,9 +5,9 @@ using namespace std;
 int main()
 {
 	Array<> arr;
-	arr.Add(1);
-	arr.Add(1);
-	arr.Add(1);
+	arr.InsertBegin(1);
+	arr.InsertBegin(2);
+	arr.InsertBegin(3);
 	arr.Print();
 	Array<> arr2(arr);
 	arr2.Print();
