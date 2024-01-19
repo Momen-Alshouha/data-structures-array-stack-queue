@@ -1,6 +1,9 @@
 #include <iostream>
+#include "Element.h"
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Element<int> ele(1);
+	cout << ele;
 }
