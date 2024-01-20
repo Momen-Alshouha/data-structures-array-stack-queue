@@ -100,6 +100,16 @@ public:
         delete[] _ptrToFirstElement;
     }
 
+    size_t GetCapacity() {
+        return _capacity;
+    }
+
+    size_t GetSize() {
+        return _currentSize;
+    }
+
+    __declspec(property(get = GetCapacity)) size_t capacity;
+    __declspec(property(get = GetSize)) size_t size;
 
 private:
     Element<T>* _ptrToFirstElement;
