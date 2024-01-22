@@ -9,6 +9,13 @@ int main()
 	arr.InsertBegin(2);
 	arr.InsertBegin(3);
 	arr.Print();
-	cout << arr.size << endl;
-	cout << arr.capacity<< endl;
+	cout <<"Size : " << arr.size << endl;
+	cout << "Capacity : " << arr.capacity << endl;
+
+	Array<> arr2(arr);
+	arr2.Print();
+	
+	Array<> arr3 = arr2;
+	arr3.Print();
+
 }

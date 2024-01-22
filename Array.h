@@ -9,10 +9,13 @@ class Array
 public:
     static const size_t DEFAULT_CAPACITY = 10;
 
+    // consrtuctor with edfault capacity
     Array() : _ptrToFirstElement(new Element<T>[DEFAULT_CAPACITY]), _currentSize(0), _capacity(DEFAULT_CAPACITY) { }
 
+    // constructor as initial capacity
     Array(size_t initialCapacity) : _ptrToFirstElement(new Element<T>[initialCapacity]), _currentSize(0), _capacity(initialCapacity) { }
 
+    // copy constructor
     Array(const Array& source) : _ptrToFirstElement(new Element<T>[source._capacity]), _currentSize(source._currentSize), _capacity(source._capacity)
     {
         for (size_t i = 0; i < _currentSize; ++i)
@@ -21,6 +24,7 @@ public:
         }
     }
 
+    // copy assignment operator overload
     Array& operator=(const Array& other)
     {
         if (this != &other)
@@ -37,6 +41,13 @@ public:
         }
         return *this;
     }
+
+    
+    /*
+    * move constructor
+    * This is the move constructor. It is used when you want to transfer the resources
+    * (ownership of the dynamically allocated array in this case) from one object to another 
+    */
 
     Array(Array&& other) noexcept : _ptrToFirstElement(other._ptrToFirstElement), _currentSize(other._currentSize), _capacity(other._capacity)
     {
@@ -63,7 +74,7 @@ public:
 
     void InsertEnd(T data)
     {
-        _ptrToFirstElement[_currentSize].SetDataValue(data);
+        _ptrToFirstElement[_currentSize].data = data;
         ++_currentSize;
     }
 
