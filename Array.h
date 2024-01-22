@@ -216,6 +216,14 @@ public:
         cout << endl;
     }
 
+    // clear the array and release resources
+    void Clear() {
+        delete[] _ptrToFirstElement;
+        _ptrToFirstElement = new Element<T>[DEFAULT_CAPACITY];
+        _currentSize = 0;
+        _capacity = DEFAULT_CAPACITY;
+    }
+
     // Destructor to release memory
     ~Array()
     {
