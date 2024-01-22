@@ -88,12 +88,42 @@ public:
         return _ptrToFirstElement[index].data;
     }
 
+    bool IsExist(T value) {
+        for (size_t i = 0; i < _currentSize; i++)
+        {
+            if (_ptrToFirstElement[i].data == value)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     T At(size_t index) {
         if (index>=_currentSize)
         {
             throw out_of_range("Index out of range");
         }
         return _ptrToFirstElement[index].data;
+    }
+
+    bool isEmpty() {
+        return (_currentSize == 0);
+    }
+
+    void RemoveDuplicates() {
+        if (!isEmpty() && _currentSize>1)
+        {
+            Array temp;
+            for (size_t i = 0; i < _currentSize; i++)
+            {
+                if (!temp.IsExist(_ptrToFirstElement[i].data))
+                {
+                    temp.InsertEnd(_ptrToFirstElement[i].data);
+                }
+            }
+            *this = temp;
+        }
     }
 
     void InsertEnd(T data)

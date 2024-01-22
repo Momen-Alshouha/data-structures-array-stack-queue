@@ -35,9 +35,13 @@ int main()
 	names.InsertBegin("Ahmad");
 	names.InsertBegin("samer");
 	names.InsertBegin("rami");
+	names.InsertBegin("rami");
+	names.InsertBegin("nader");
 	names.InsertBegin("nader");
 
 	names.Print();
 	names.Reverse();
+	names.Print();
+	names.RemoveDuplicates();
 	names.Print();
 }
