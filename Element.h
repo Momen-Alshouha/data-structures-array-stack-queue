@@ -7,7 +7,7 @@ public:
     Element() {};
     Element(T data);
 
-    T GetDataValue() {
+    T& GetDataValue() {
         return _data;
     }
 
@@ -15,7 +15,7 @@ public:
         _data = data;
     }
 
-   __declspec(property(get = GetDataValue, put = SetDataValue)) T data;
+   __declspec(property(get = GetDataValue, put = SetDataValue)) T &data;
 
    friend std::ostream& operator<<(std::ostream& os,  Element<T>& element) // operator overloading
    {

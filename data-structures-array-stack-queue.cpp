@@ -18,4 +18,6 @@ int main()
 	Array<> arr3 = arr2;
 	arr3.Print();
 
+	cout << "Element At index 0 : " << arr[0] << endl;
+	
 }

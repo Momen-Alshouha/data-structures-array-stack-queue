@@ -72,6 +72,30 @@ public:
         return *this;
     }
 
+    // Access an element using the subscript operator []
+    T& operator[](size_t index) {
+        if (index >= _currentSize) {
+            throw std::out_of_range("Index out of range");
+        }
+        return _ptrToFirstElement[index].data;
+    }
+
+    // Access an element using the subscript operator [] (const version for read-only access)
+    const T operator[](size_t index) const {
+        if (index >= _currentSize) {
+            throw std::out_of_range("Index out of range");
+        }
+        return _ptrToFirstElement[index].data;
+    }
+
+    T At(size_t index) {
+        if (index>=_currentSize)
+        {
+            throw out_of_range("Index out of range");
+        }
+        return _ptrToFirstElement[index].data;
+    }
+
     void InsertEnd(T data)
     {
         _ptrToFirstElement[_currentSize].data = data;
