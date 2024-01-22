@@ -20,6 +20,13 @@ int main()
 
 	cout << "Element At index 0 : " << arr[0] << endl;
 	arr.InsertAtIndex(1, 99);
+	cout << arr.size << endl;
+	cout << arr.capacity<< endl;
+	arr.Shrink();
+	cout << arr.capacity << endl;
+	arr.Print();
+	cout << "After remove element : " << endl;
+	arr.RemoveAtIndex(2);
 	arr.Print();
 	cout << arr.size << endl;
 }

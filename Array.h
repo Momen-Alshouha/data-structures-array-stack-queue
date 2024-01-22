@@ -149,6 +149,24 @@ public:
         ++_currentSize;
     }
 
+    void RemoveAtIndex(size_t index) {
+        if (index >= _currentSize) {
+            throw std::out_of_range("Index out of range");
+        }
+
+        // Move elements after the removed index one position to the left
+        for (size_t i = index; i < _currentSize - 1; ++i) {
+            _ptrToFirstElement[i].data = _ptrToFirstElement[i + 1].data;
+        }
+
+        --_currentSize;
+    }
+
+
+    void Shrink() {
+        //  reduce the capacity of the array to fit its current size.
+        _capacity = _currentSize;
+    }
 
     void Print() const
     {
@@ -179,7 +197,7 @@ public:
 private:
     Element<T>* _ptrToFirstElement;
     size_t _currentSize;
-    size_t _capacity;
+    size_t _capacity; // capacity refers to the maximum number of elements that the array can **currently** hold.
 
     void Resize(size_t newCapacity)
     {
