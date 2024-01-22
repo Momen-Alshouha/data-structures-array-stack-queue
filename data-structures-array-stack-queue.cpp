@@ -19,5 +19,7 @@ int main()
 	arr3.Print();
 
 	cout << "Element At index 0 : " << arr[0] << endl;
-	
+	arr.InsertAtIndex(1, 99);
+	arr.Print();
+	cout << arr.size << endl;
 }

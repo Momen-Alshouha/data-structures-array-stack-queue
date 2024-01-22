@@ -120,6 +120,36 @@ public:
         ++_currentSize;
     }
 
+    void InsertAtIndex(short index, T value) {
+        if (index < 0 || index > _currentSize) {
+            throw std::out_of_range("Index out of range");
+        }
+
+        if (_currentSize >= _capacity) {
+            Resize(_capacity + 2);
+        }
+
+        Array temp = *this;
+        short counter = 0;
+        for (size_t i = 0; i <= _currentSize; ++i) {
+            if (i == index) {
+                _ptrToFirstElement[i] = value;
+                continue;
+            }
+            _ptrToFirstElement[i] = temp[counter];
+            counter++;
+        }
+
+        // Insert at the end if the index is equal to the current size
+        if (index == _currentSize) {
+            _ptrToFirstElement[_currentSize] = value;
+        }
+
+        // Increase the current size
+        ++_currentSize;
+    }
+
+
     void Print() const
     {
         for (size_t i = 0; i < _currentSize; ++i)
