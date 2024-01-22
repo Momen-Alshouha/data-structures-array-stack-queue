@@ -162,6 +162,15 @@ public:
         --_currentSize;
     }
 
+    void Reverse() {
+        for (size_t i = 0; i < _currentSize/2; i++)
+        {
+            // swaps each element with its corresponding element in the second half
+            T temp = _ptrToFirstElement[i].data; 
+            _ptrToFirstElement[i].data = _ptrToFirstElement[_currentSize -1 - i].data;
+            _ptrToFirstElement[_currentSize -1- i].data = temp;
+        }
+    }
 
     void Shrink() {
         //  reduce the capacity of the array to fit its current size.

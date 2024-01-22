@@ -29,4 +29,15 @@ int main()
 	arr.RemoveAtIndex(2);
 	arr.Print();
 	cout << arr.size << endl;
+	cout << "\n----------------------------------\n\n";
+	Array<string> names;
+
+	names.InsertBegin("Ahmad");
+	names.InsertBegin("samer");
+	names.InsertBegin("rami");
+	names.InsertBegin("nader");
+
+	names.Print();
+	names.Reverse();
+	names.Print();
 }
