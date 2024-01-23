@@ -11,7 +11,7 @@ public:
 
 	Stack() = default;
 
-	Stack(size_t initialCapacity) : Array(initialCapacity) {}
+	Stack(size_t initialCapacity) : stack(initialCapacity) {}
 
 	size_t Size() {
 		return stack.size;
