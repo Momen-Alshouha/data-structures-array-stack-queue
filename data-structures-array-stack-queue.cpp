@@ -1,9 +1,26 @@
 #include <iostream>
 #include "Array.h"
+#include "Stack.h"
 using namespace std;
 
 int main()
 {
+	Stack<int> stack;
+	stack.push(1);
+	stack.push(2);
+	stack.push(3);
+	stack.print();
+	stack.pop();
+	stack.push(19);
+	stack.push(14);
+	stack.print();
+	
+	cout << "Top : " << stack.Top() << endl; 
+	
+	cout << "Bottom : " << stack.Bottom() << endl;
+
+	cout << "***************************************\n";
+
 	Array<> arr;
 	arr.InsertBegin(1);
 	arr.InsertBegin(2);
@@ -44,4 +61,5 @@ int main()
 	names.Print();
 	names.RemoveDuplicates();
 	names.Print();
+
 }
