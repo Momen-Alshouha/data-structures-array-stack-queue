@@ -1,7 +1,7 @@
 #pragma once
 #include "Array.h"
 
-template<typename T>
+template<typename T = int>
 class Stack
 {
 private:
@@ -11,7 +11,7 @@ public:
 
 	Stack() = default;
 
-	Stack(size_t initialCapacity) : stack(initialCapacity) {}
+	Stack(size_t initialCapacity) : Array(initialCapacity) {}
 
 	size_t Size() {
 		return stack.size;
@@ -36,9 +36,6 @@ public:
 	}
 
 	void push(T value) {
-		if (IsEmpty()) {
-			throw std::out_of_range("Stack is empty");
-		}
 		stack.InsertBegin(value);
 	}
 
@@ -50,7 +47,7 @@ public:
 	}
 
 	bool IsEmpty() {
-		return this->IsEmpty();
+		return stack.isEmpty();
 	}
 
 	size_t Capacity() {
